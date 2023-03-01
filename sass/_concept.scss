@@ -1,0 +1,81 @@
+@use "var";
+
+.concept-inner {
+  display: flex;
+  margin-top: 64px;
+  align-items: center;
+
+  @include var.mq('sp') {
+    flex-direction: column;
+    margin-top: 48px;
+  }
+}
+.concept-vis {
+  width: 50%;
+  @include var.mq('sp') {
+    width: 100%;
+  } 
+}
+.concept-content {
+  width: 50%;
+  padding-left: 80px;
+
+  @include var.mq('sp') {
+    width: 100%;
+    padding-left: 0;
+    margin-top: 36px;
+  }
+}
+.concept-head {
+  font-size: 20px;
+  line-height: (34 / 20);
+}
+.concept-text {
+  margin-top: 40px;
+  @include var.mq('sp') {
+    margin-top: 32px;
+  }
+}
+
+
+.concept-2-inner {
+  display: flex;
+  margin-top: 160px;
+  align-items: center;
+
+  @include var.mq('sp') {
+    flex-direction: column-reverse;
+    margin-top: 90px;
+  }
+}
+.concept-2-vis {
+  width: 50%;
+  @include var.mq('sp') {
+    width: 100%;
+  }
+}
+.concept-2-content {
+  width: 50%;
+  padding-right: 80px;
+  @include var.mq('sp') {
+    width: 100%;
+    padding-right: 0;
+    margin-top: 36px;
+  }
+}
+.concept-2-head {
+  font-size: 28px;
+  line-height: (48 / 28);
+
+  @include var.mq('sp') {
+    font-size: 20px;
+    line-height: (34 / 20);
+  }
+}
+.concept-2-text {
+  margin-top: 40px;
+  @include var.mq('sp') {
+    margin-top: 32px;
+    font-size: 14px;
+  }
+}

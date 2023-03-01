@@ -1,0 +1,152 @@
+@use "var";
+
+#header {
+  height: 70px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  z-index: 100;
+
+  @include var.mq('sp') {
+    height: 60px;
+  }
+}
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+
+  @include var.mq('sp') {
+    height: 60px;
+  }
+}
+
+.logo {
+  width: 120px;
+  line-height: 70px;
+  @include var.mq('sp') {
+    line-height: 60px;
+  }
+  a {
+    display: block;
+  }
+  img {
+    vertical-align: baseline;
+  }
+}
+
+.header-list {
+  display: flex;
+  align-items: center;
+  @include var.mq('sp') {
+    display: none;
+  }
+  li {
+    &:not(:first-child) {
+      margin-left: 48px;
+    }
+    a {
+      display: block;
+      line-height: 70px;
+      transition: all 0.3s ease 0s;
+      letter-spacing: 0.1em;
+      &:hover {
+        color: var.$color-main;
+      }
+    }
+  }
+}
+
+
+
+.drawer-icon {
+  position: fixed;
+  top: 22px;
+  right: 15px;
+  z-index: 101;
+  display: none;
+  transition: transform 0.5s ease 0s;
+  cursor: pointer;
+  @include var.mq('sp') {
+    display: block;
+  }
+
+  &.is-active {
+    .drawer-bar1 {
+      transform: rotate(-45deg);
+      top: 8px;
+    }
+    .drawer-bar2 {
+      display: none;
+    }
+    .drawer-bar3 {
+      transform: rotate(45deg);
+      top: 8px;
+    }
+  }
+}
+
+.drawer-bars {
+  width: 30px;
+  height: 18px;
+  display: block;
+  position: relative;
+  }
+  .drawer-bar1,
+  .drawer-bar2,
+  .drawer-bar3 {
+  position: absolute;
+  width: 30px;
+  height: 2px;
+  background: var.$color-main;
+  top: 0;
+  left: 0;
+  }
+  .drawer-bar1 {
+  top: 0;
+  }
+  .drawer-bar2 {
+  top: 8px;
+  }
+  .drawer-bar3 {
+  top: 16px;
+  }
+
+  .drawer-content {
+    width: 270px;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background: var.$color-main;
+    z-index: 99;
+    transform: translateX(105%);
+    transition: transform 0.5s ease 0s;
+    margin-top: 60px;
+    
+    &.is-active {
+      transform: translateX(0);
+    }
+   }
+    
+  .drawer-list {
+    text-align: right;
+    margin-top: 46px;
+    li {
+      position: relative;
+      a {
+        display: block;
+        color: #fff;
+        line-height: 60px;
+        font-size: 18px;
+        transition:  background-color 0.3s ease 0s;
+        padding-right: 18px;
+        &:hover {
+          background-color: rgba(#fff, 0.2);
+        }
+      }
+    }
+  }

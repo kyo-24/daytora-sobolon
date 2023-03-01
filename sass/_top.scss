@@ -1,0 +1,51 @@
+@use "var";
+
+#top {
+  margin-top: 70px;
+  @include var.mq('sp') {
+    margin-top: 60px;
+  }
+}
+.top-inner {
+  position: relative;
+}
+.top-vis {
+  margin-left: auto;
+  width: 990px;
+  max-width: 100%;
+  aspect-ratio: ( 990 / 660 );
+  background: url(../img/top@2x.png) no-repeat center top / cover;
+
+  @include var.mq('sp') {
+    width: 100%;
+    background: url(../img/sp/top@2x.png) no-repeat center center / cover;
+    aspect-ratio: ( 345 / 414 );
+  }
+}
+.top-content {
+  background: #fff;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0px;
+  padding: 92px 40px 92px 0;
+  @include var.mq('sp') {
+    position: static;
+    transform: none;
+    padding: 0;
+    margin-top: 36px;
+  }
+}
+.top-head {
+  font-size: 26px;
+  line-height: (44 / 26);
+  br {
+    display: none;
+  }
+}
+.top-text {
+  margin-top: 24px;
+  @include var.mq('sp') {
+    margin-top: 26px;
+  }
+}

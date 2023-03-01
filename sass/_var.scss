@@ -1,0 +1,20 @@
+$color-main: #3EA1D1;
+$color-text: #333;
+$color-gray: #888;
+$color-pink: #E7728E;
+
+
+$layout-width-inner : 1280px;
+
+
+$breakpoints: (
+//キー : 値
+  'sp': "(max-width: 767px)", 
+  'pc': "(min-width: 768px)"
+) !default;
+
+@mixin mq($breakpoint: sp) {
+  @media #{map-get($breakpoints, $breakpoint)} {
+    @content;
+  }
+}

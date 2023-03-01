@@ -1,0 +1,42 @@
+@use "var";
+
+
+.feature-inner {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 64px;
+
+  @include var.mq('sp') {
+    margin-top: 48px;
+    flex-direction: column;
+  }
+}
+.feature-item {
+  max-width: 340px;
+  box-shadow: 3px 3px 15px #60606029;
+  overflow: hidden;
+  @include var.mq('sp') {
+    margin: 0 auto;
+    &:not(:first-child) {
+      margin-top: 48px;
+    }
+  }
+  a {
+    display: block;
+
+    &:hover {
+      > img {
+        transform: scale(1.05);
+      }
+    }
+    img {
+      object-fit: cover;
+      transition: transform 0.3s ease 0s;
+    }
+  }
+}
+.feature-text {
+  font-weight: bold;
+  text-align: center;
+  padding: 30px 0;
+}

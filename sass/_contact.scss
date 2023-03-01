@@ -1,0 +1,263 @@
+@use "var";
+
+#contact {
+  padding: 70px 0 85px;
+  text-align: center;
+  background: url(../img/contact@2x.png) no-repeat center top / cover;
+  .section-title {
+    color: var.$color-main;
+  }
+
+  @include var.mq('sp') {
+    padding: 57px 0;
+  }
+}
+
+.contact-text {
+  font-size: 14px;
+  margin-top: 60px;
+  letter-spacing: 0.1em;
+  span {
+    color: var.$color-pink;
+  }
+
+  @include var.mq('sp') {
+    margin-top: 30px;
+    font-weight: bold;
+    margin-bottom: 32px;
+  }
+}
+
+.contact-list {
+  max-width: 600px;
+  width: 100%;
+  margin: 24px auto 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+
+  @include var.mq('sp') {
+    max-width: 320px;
+    margin: 0 auto;
+    flex-direction: column;
+  }
+  dt {
+    width: 180px;
+    background-color: rgba(62, 161, 209, 0.7);
+    color: #fff;
+    height: 40px;
+    font-size: 18px;
+    clip-path: polygon(0% 0%, 95% 0%, 100% 50%, 95% 100%, 0% 100%);
+    margin-bottom: 32px;
+
+    @include var.mq('sp') {
+      margin-bottom: 3px;
+      height: 32px;
+      font-size: 14px;
+      clip-path: none;
+      background-color: transparent;
+      text-align: left;
+    }
+
+    label {
+      display: inline-block;
+      line-height: 40px;
+      @include var.mq('sp') {
+        background-color: rgba(var.$color-main, 0.7);
+        padding: 0 16px;
+        line-height: 32px;
+      }
+      span {
+        position: relative;
+        &::after {
+          content: "*";
+          width: 12px;
+          height: 12px;
+          position: absolute;
+          left: 102%;
+          top: -8px;
+          color: var.$color-pink;
+          @include var.mq('sp') {
+            width: 10px;
+            height: 10px;
+          }
+        }
+      }
+    }
+  }
+
+  dd {
+    width: calc(100% - 190px);
+    margin-bottom: 32px;
+    text-align: left;
+
+    @include var.mq('sp') {
+      width: 100%;
+      margin-bottom: 24px;
+    }
+  }
+
+}
+
+
+input[type="text"],
+input[type="email"] {
+  background: #fff;
+  width: 100%;
+  height: 40px;
+  border-radius: 2px;
+  box-shadow: 5px 6px 15px #60606029;
+  padding: 4px 8px;
+  font-size: 16px;
+}
+
+textarea {
+  background: #fff;
+  width: 100%;
+  min-height: 122px;
+  padding: 4px 8px;
+  font-size: 16px;
+  box-shadow: 5px 5px 15px #60606029;
+  border-radius: 2px;
+  line-height: 1.2;
+}
+
+
+
+.radio {
+  display: inline-flex;
+  border: 1px solid #fff;
+  border-radius: 1px;
+  box-shadow: 5px 5px 15px #60606029;
+}
+.contact-radio {
+  position: relative;
+}
+.contact-radio-input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  + span {
+    display: block;
+    background: #fff;
+    color: var.$color-main;
+    height: 38px;
+    line-height: 38px;
+    width: 80px;
+    text-align: center;
+    transition: background-color .4s, color .4s;
+  }
+
+  &:checked {
+    + span {
+      background: var.$color-main;
+      color: #fff;
+      border-radius: 1px;
+    }
+  }
+  &:focus {
+    + span {
+        outline: -webkit-focus-ring-color auto 5px;
+    }
+  }
+}
+
+.contact-check {
+  display: none;
+  + span {
+      padding-left: 30px;
+      cursor: pointer;
+      position: relative;
+      display: inline-block;
+      a {
+        color: var.$color-main;
+        text-decoration: underline;
+      }
+
+      &::before {
+        content: "";
+        width: 22px;
+        height: 22px;
+        border: 1px solid var.$color-main;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 0;
+        background: #fff;
+        transition: all .3s, border-color .08s;
+      }
+  }
+
+  &:checked {
+    + span {
+      &::before {
+        width: 11px;
+        top: 0;
+        left: 5px;
+        border-radius: 0;
+        opacity: 1;
+        border-top-color: transparent;
+        border-left-color: transparent;
+        -webkit-transform: rotate(45deg);
+        transform: rotate(45deg);
+        background: transparent;
+      }
+    }
+  }
+
+  &:focus {
+    + span {
+      &::before {
+        outline: -webkit-focus-ring-color auto 5px;
+      }
+    }
+  }
+  &:checked:focus {
+    + span {
+      &::before {
+        outline: none;
+      }
+    }
+  }
+}
+
+
+
+
+.contact-submit {
+  margin-top: 48px;
+
+  @include var.mq('sp') {
+    margin-top: 24px;
+    font-size: 14px;
+  }
+}
+.send {
+  color: var.$color-main;
+  border: 1px solid var.$color-main;
+  background: #fff;
+  padding: 16px 54px;
+  font-weight: bold;
+  line-height: 1;
+  transition: all 0.3s ease 0s;
+
+  &.-active {
+    background: var.$color-main;
+    color: #fff;
+  }
+}
+
+.contact-message {
+  text-align: center;
+  margin-top: 60px;
+  display: none;
+
+  &.-error {
+    color: #f00;
+  }
+}
+
+
+

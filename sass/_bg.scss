@@ -1,0 +1,54 @@
+@use "var";
+
+#bg {
+  background: url(../img/bg@2x.png) no-repeat center top / cover;
+  padding: 120px 0;
+  margin-top: 190px;
+  border: 1px solid rgba(#707070, 0.12);
+  position: relative;
+  z-index: 0;
+  @include var.mq('sp') {
+    background: url(../img/sp/bg@2x.png) no-repeat center top / cover;
+    padding-top: 176px;
+    padding-bottom: 52px;
+    margin-top: 90px;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.12);
+    display: block;
+    z-index: -1;
+  }
+
+
+}
+.bg-content {
+  color: #fff;
+}
+.bg-head {
+  font-size: 22px;
+  line-height: (37 / 22);
+
+  @include var.mq('sp') {
+    font-size: 20px;
+  }
+}
+.bg-text {
+  margin-top: 36px;
+
+  @include var.mq('sp') {
+    font-size: 14px;
+  }
+
+  br {
+    &:nth-child(2) {
+      display: none;
+    }
+  }
+}
